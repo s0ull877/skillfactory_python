@@ -16,7 +16,7 @@ def choose_side() -> (str,bool):
         return answer, True
 
 # принтит игровую карту(?)
-def print_game_map(game_map: list):
+def print_game_map(game_map: list) -> None:
     os.system('cls')
     temp = [game_map[0].copy(),game_map[1].copy(),game_map[2].copy()] #траблы двумерного массива
 
@@ -27,7 +27,7 @@ def print_game_map(game_map: list):
     
 
 # ход юзера
-def user_insert(game_map: list, answer: str):
+def user_insert(game_map: list, answer: str) -> bool:
     try:
     
         x = int(input('x: '))
