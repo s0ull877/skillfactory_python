@@ -1,5 +1,15 @@
 from consts import pattern_x, pattern_0
+import random
 
+
+def get_random_choice(game_map) -> [int ,int]:
+    choices = []
+    for row in range(0,3):
+       for column in range(0,3):
+            if game_map[row][column] == '-':
+                choices.append([row,column])
+
+    return random.choice(choices)
 
 # если юзер выбрал нолик
 def bot_side_x(game_map: list) -> list:
@@ -58,16 +68,9 @@ def bot_side_x(game_map: list) -> list:
         return game_map
 
     #! обычный ход
-    for row in range(0,3):
-        try:
-            column = game_map[row].index('-')
-            game_map[row][column] = 'x'
-            break
-        except ValueError:
-            pass
-
-    if check_edit != game_map:
-        return game_map
+    row, column = get_random_choice(game_map)
+    game_map[row][column] = 'x'
+    return game_map
 
 
 
@@ -129,13 +132,9 @@ def bot_side_0(game_map: list) -> list:
         return game_map
 
     #! обычный ход
-    for row in range(0,3):
-        try:
-            column = game_map[row].index('-')
-            game_map[row][column] = 'O'
-            break
-        except ValueError:
-            pass
+    row, column = get_random_choice(game_map)
+    game_map[row][column] = 'O'
+    return game_map
     
     if check_edit != game_map:
         return game_map
