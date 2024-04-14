@@ -1,3 +1,6 @@
+from board import Board
+from player import Player, BotPlayer
+from game import Game
 
 def main():
     bot_board = Board(hid=True)
